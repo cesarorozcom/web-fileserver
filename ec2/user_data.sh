@@ -9,6 +9,10 @@ git clone https://github.com/cesarorozcom/web-fileserver.git /home/ec2-user/web-
 # Navega al directorio del proyecto
 cd /home/ec2-user/web-fileserver
 
+python3 -m venv venv
+
+source venv/bin/activate
+
 # Instala las dependencias del proyecto
 pip3 install -r requirements.txt
 
@@ -25,4 +29,5 @@ EOF
 
 # Instala Gunicorn y ejecuta la aplicación
 pip3 install gunicorn
+
 nohup gunicorn -w 4 -b 0.0.0.0:5000 app:app &
